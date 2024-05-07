@@ -1,0 +1,292 @@
+
+Create a Modular Pseudocode / Flowchart for the following problem definition
+ 
+1. Consider an Item Master list of data. Each record in the item master will contain the following data
+ 
+ITEM_MASTER RECORD:
+	ItemCode
+	ItemName
+	ItemQOH
+	ItemRate
+2. Create an Array of 10 Item Master Records
+ 
+3. Display Menu
+	1. Buy Product
+	2. Sell Product
+	3. Find Product
+	4. Quit
+STEP 1:
+Display the menu and accept a valid option of 1,2, 3 or 4.
+If the user enter 4. Display the Item master array. Then exit
+ 
+If the user enter 3. Then enter the item code to find. Do a linear search to find the item in the master List array. and if found display the Item details. If not found display "Item Not Found"
+ 
+If the user enter 1. Then Enter the Item Code, search in the item master. If found input the qty to buy. Add bought qty to the qoh in the master
+ 
+If the use Enter 2. Then enter Item Code, search in the item master in memory. If found input the qty to sell. If the qty to sell is > then qoh in master, display error message, otherwise subtract the qty to sell from the qoh in the master.
+ 
+After the user completes the process for 1,2 or 3 option. Then Go to Step 1
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+MODULE Main
+    DECLARE itemMaster AS List
+
+    itemMaster = LoadItemMaster() 
+
+    DisplayMenu() 
+
+    DO WHILE True
+        choice = GetUserChoice() 
+        SELECT CASE choice
+            CASE 1:
+                AddItem(itemMaster)
+            CASE 2:
+                RemoveItem(itemMaster)
+            CASE 3:
+                UpdateItem(itemMaster)
+            CASE 4:
+                DisplayItemMaster(itemMaster)
+            CASE 5:
+                SaveItemMaster(itemMaster) /
+                EXIT DO
+            CASE ELSE:
+                DisplayErrorMessage("Invalid choice. Please select again.")
+        END SELECT
+    LOOP
+
+END MODULE
+
+
+FUNCTION LoadItemMaster() RETURNS List
+    
+    RETURN loadedItemMaster
+END FUNCTION
+
+
+PROCEDURE DisplayMenu()
+    PRINT "1. Add Item"
+    PRINT "2. Remove Item"
+    PRINT "3. Update Item"
+    PRINT "4. Display Item Master"
+    PRINT "5. Save and Exit"
+END PROCEDURE
+
+
+FUNCTION GetUserChoice() RETURNS Integer
+    PRINT "Enter your choice: "
+    choice = READ Integer
+    RETURN choice
+END FUNCTION
+
+
+PROCEDURE AddItem(itemMaster)
+   
+END PROCEDURE
+
+/
+PROCEDURE RemoveItem(itemMaster)
+    
+END PROCEDURE
+
+
+PROCEDURE UpdateItem(itemMaster)
+    
+END PROCEDURE
+
+
+PROCEDURE DisplayItemMaster(itemMaster)
+    
+END PROCEDURE
+
+/
+PROCEDURE SaveItemMaster(itemMaster)
+    
+END PROCEDURE
+
+
+PROCEDURE DisplayErrorMessage(message)
+    PRINT message
+END PROCEDURE
+    
+
+
+2>
+MODULE InitializeItemMaster
+    DECLARE itemMasterArray[10] AS ITEM_MASTER RECORD
+
+MODULE PopulateItemMaster(itemMasterArray)
+    FOR i FROM 0 TO 9 DO
+        READ ItemCode, ItemName, ItemQOH, ItemRate FROM USER
+        itemMasterArray[i].ItemCode = ItemCode
+        itemMasterArray[i].ItemName = ItemName
+        itemMasterArray[i].ItemQOH = ItemQOH
+        itemMasterArray[i].ItemRate = ItemRate
+    END FOR
+
+MODULE DisplayItemMaster(itemMasterArray)
+    FOR i FROM 0 TO 9 DO
+        PRINT "Item Code:", itemMasterArray[i].ItemCode
+        PRINT "Item Name:", itemMasterArray[i].ItemName
+        PRINT "Item Quantity on Hand:", itemMasterArray[i].ItemQOH
+        PRINT "Item Rate:", itemMasterArray[i].ItemRate
+    END FOR
+
+MODULE Main
+    DECLARE itemMasterArray[10] AS ITEM_MASTER RECORD
+    CALL InitializeItemMaster
+    CALL PopulateItemMaster(itemMasterArray)
+    CALL DisplayItemMaster(itemMasterArray)
+
+
+
+
+
+
+
+
+//////////////////////////////////
+nitialize ItemMaster Array with 10 elements
+
+Define structure for ItemMasterRecord:
+    ItemCode
+    ItemName
+    ItemQOH
+    ItemRate
+
+Define function DisplayMenu():
+    Display "Menu"
+    Display "1. Buy Product"
+    Display "2. Sell Product"
+    Display "3. Find Product"
+    Display "4. Quit"
+
+Define function LinearSearch(ItemCode, ItemMaster):
+    for each item in ItemMaster:
+        if item.ItemCode == ItemCode:
+            return item
+    return null
+
+Define function DisplayItemDetails(item):
+    Display "Item Code: " + item.ItemCode
+    Display "Item Name: " + item.ItemName
+    Display "Quantity on Hand: " + item.ItemQOH
+    Display "Item Rate: " + item.ItemRate
+
+Define function BuyProduct(ItemMaster):
+    Input ItemCode
+    item = LinearSearch(ItemCode, ItemMaster)
+    if item is not null:
+        Input quantity to buy
+        item.ItemQOH += quantity
+    else:
+        Display "Item Not Found"
+
+Define function SellProduct(ItemMaster):
+    Input ItemCode
+    item = LinearSearch(ItemCode, ItemMaster)
+    if item is not null:
+        Input quantity to sell
+        if quantity <= item.ItemQOH:
+            item.ItemQOH -= quantity
+        else:
+            Display "Insufficient Quantity"
+    else:
+        Display "Item Not Found"
+
+Define function FindProduct(ItemMaster):
+    Input ItemCode
+    item = LinearSearch(ItemCode, ItemMaster)
+    if item is not null:
+        DisplayItemDetails(item)
+    else:
+        Display "Item Not Found"
+
+Define function Main():
+    Repeat:
+        DisplayMenu()
+        Input choice
+        switch choice:
+            case 1:
+                BuyProduct(ItemMaster)
+            case 2:
+                SellProduct(ItemMaster)
+            case 3:
+                FindProduct(ItemMaster)
+            case 4:
+                for each item in ItemMaster:
+                    DisplayItemDetails(item)
+                Exit loop
+            default:
+                Display "Invalid choice, please try again"
+
+Main()
+
+///////////////////////////////////////////////////////////////////////////
+Define ItemMaster array of size 10
+
+FUNCTION displayMenu():
+    Display Menu:
+        1. Buy Product
+        2. Sell Product
+        3. Find Product
+        4. Quit
+
+FUNCTION linearSearch(itemCode):
+    FOR i from 0 to length of ItemMaster array:
+        IF ItemMaster[i].ItemCode is equal to itemCode:
+            RETURN i
+    RETURN -1
+
+FUNCTION displayItemDetails(index):
+    Display ItemMaster[index].ItemCode, ItemMaster[index].ItemName, ItemMaster[index].ItemQOH, ItemMaster[index].ItemRate
+
+FUNCTION buyProduct():
+    Input itemCode
+    index = linearSearch(itemCode)
+    IF index is not equal to -1:
+        Input qtyToBuy
+        ItemMaster[index].ItemQOH += qtyToBuy
+    ELSE:
+        Display "Item Not Found"
+
+FUNCTION sellProduct():
+    Input itemCode
+    index = linearSearch(itemCode)
+    IF index is not equal to -1:
+        Input qtyToSell
+        IF qtyToSell > ItemMaster[index].ItemQOH:
+            Display "Error: Not enough quantity in stock"
+        ELSE:
+            ItemMaster[index].ItemQOH -= qtyToSell
+    ELSE:
+        Display "Item Not Found"
+
+FUNCTION findProduct():
+    Input itemCode
+    index = linearSearch(itemCode)
+    IF index is not equal to -1:
+        displayItemDetails(index)
+    ELSE:
+        Display "Item Not Found"
+
+MAIN:
+    WHILE True:
+        displayMenu()
+        Input choice
+        SWITCH choice:
+            CASE 1:
+                buyProduct()
+            CASE 2:
+                sellProduct()
+            CASE 3:
+                findProduct()
+            CASE 4:
+                FOR i from 0 to length of ItemMaster array:
+                    Display ItemMaster[i].ItemCode, ItemMaster[i].ItemName, ItemMaster[i].ItemQOH, ItemMaster[i].ItemRate
+                Exit program
+            DEFAULT:
+                Display "Invalid choice"

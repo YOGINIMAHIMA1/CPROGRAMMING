@@ -1,0 +1,12 @@
+char* run_length_encode(char const * input)
+
+{
+  //IMPLEMENT
+return NULL;
+}
+
+char* run_length_decode(char const * input)
+{
+//IMPLEMENT
+return NULL;
+}

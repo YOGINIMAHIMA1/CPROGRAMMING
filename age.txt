@@ -1,0 +1,22 @@
+WAP TO INPUT AGE OF A PERSON DISPLAY BASED ON THE FOLLOWING TABLE
+
+Age      Display
+<=3     "Infant"
+>3 && <=12   "child"
+>12 && <=60   "Teenager"
+>20 && <=60   "Adult"
+>60                  "Senor citizen"
+
+
+
+
+Start AgeDisplay
+input age
+if age<=3
+Display "person is infant"
+else if age >3 &&<=12
+Display "person is child"
+else if age>12 &&<=60
+Display   "Person is teenager"
+else
+Display "Person is Senior Citizen"

@@ -1,0 +1,11 @@
+start ProductofthreeNumbers
+Declare x,y,z,Product
+display "Input #1"
+Input x
+display "Input #2"
+Input y
+display "Input3"
+Input z
+Product =x*y*z
+Display "ProductOf" x,y,z"is" Product
+end ProductofthreeNumbers

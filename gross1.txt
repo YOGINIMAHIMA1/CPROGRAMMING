@@ -1,0 +1,23 @@
+Dispaly BasicSalary, Hra, Grade,gross
+
+  start salaryCalculations
+
+   declare basicsal , hra, grossSal
+
+   display "Input   Basic Salary :"
+
+    Input basicSal
+
+         hra= basicSal * 0.1
+
+            if hra >500.0
+
+                  hra=500.0
+
+                  end if
+
+         grossSal=basicSal + hra
+
+     display "Basic : ", basicSal,  " HRA : ",hra , "Grade:" ,grossSal
+
+end salaryCalculations

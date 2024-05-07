@@ -1,0 +1,11 @@
+WAP to display sum of 100 numbers from 1 to 100 numbers
+
+start sumof100Numbers
+declare num, sum=0
+num=1
+while(num<=100)
+  sum+=num
+num++
+end while
+display "Sumof numbers 1 to 100 is ",Sum
+end Sumof1to100
